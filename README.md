@@ -1,5 +1,21 @@
 # go-modelsdev-catalog-helpers
 
+## Moved to substrate
+
+This standalone repository is deprecated. New development lives in the
+[`github.com/hollis-labs/substrate/llm-core`](https://github.com/hollis-labs/substrate/tree/llm-core/v0.1.0/llm-core)
+module, released as **`llm-core/v0.1.0`**.
+
+```sh
+go get github.com/hollis-labs/substrate/llm-core@v0.1.0
+```
+
+Follow the [package and API migration guide](https://github.com/hollis-labs/substrate/blob/llm-core/v0.1.0/llm-core/costcalc/MIGRATION.md) when updating imports;
+the consolidation can include API changes. Existing standalone tags and history
+are preserved. The documentation below describes the standalone releases and
+is retained for historical reference. Applications migrate separately; this
+redirect does not deploy or update any consumer.
+
 Cost calculation over disjoint LLM usage components: go-usage-ledger Usage priced with go-modelsdev Pricing.
 
 `costcalc.Price` multiplies the five disjoint components of a `usageledger.Usage` (uncached input, cache read, cache write, output, reasoning) by the five rates of a `modelsdev.Pricing`, each at its own rate, and returns a `Cost` whose `Total()` is derived from the per-component dollar amounts rather than stored. A model missing from the catalog is a `Cost` with `Priced == false`, not an error.

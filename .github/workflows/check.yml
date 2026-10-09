@@ -19,7 +19,8 @@ jobs:
       # v6+ only — v5 ignores it and would install the `go` line).
       - uses: actions/setup-go@v6
         with:
-          go-version-file: go.mod
+          # Keep the module language floor; scan with the patched Go toolchain.
+          go-version: '1.26.9'
 
       - name: modules
         run: |
